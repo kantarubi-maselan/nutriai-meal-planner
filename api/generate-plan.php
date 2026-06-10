@@ -145,7 +145,7 @@ $requestBody = json_encode([
 ]
 ]);
 
-$url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=' . GEMINI_API_KEY;
+$url = 'https://generativelanguage.googleapis.com/v1beta/models/' . GEMINI_MODEL . ':generateContent?key=' . GEMINI_API_KEY;
 $ch = curl_init($url);
 
 curl_setopt_array($ch, [
@@ -173,7 +173,14 @@ if ($curlError) {
 }
 
 if ($httpCode !== 200) {
-    echo json_encode(['success'=>false,'error'=>'API error','http'=>$httpCode]);
+    $errData = json_decode($response, true);
+    echo json_encode([
+        'success' => false,
+        'error'   => $errData['error']['message'] ?? 'Unknown error',
+        'status'  => $errData['error']['status']  ?? '',
+        'http'    => $httpCode,
+        'raw'     => $response
+    ]);
     exit;
 }
 
