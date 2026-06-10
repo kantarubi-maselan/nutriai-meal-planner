@@ -1,0 +1,73 @@
+# ============================================================
+#  NutriAI — .gitignore
+# ============================================================
+
+# ── NEVER commit these ───────────────────────────────────────
+
+# App config (contains API key & DB password)
+includes/config.php
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# ── OS files ─────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ── IDE & editor files ────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+
+# ── PHP ───────────────────────────────────────────────────────
+*.log
+error_log
+php_errors.log
+
+# ── Dependency managers ───────────────────────────────────────
+/vendor/
+composer.lock
+
+# ── Node (if ever added) ──────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-error.log
+package-lock.json
+
+# ── Uploads & user-generated content ─────────────────────────
+uploads/
+storage/
+/public/uploads/
+
+# ── Database dumps ────────────────────────────────────────────
+*.sql.gz
+*.dump
+database_backup*.sql
+
+# ── Temp & cache ─────────────────────────────────────────────
+/tmp/
+/cache/
+*.cache
+*.tmp
+*.temp
+
+# ── Debug files (never commit these) ─────────────────────────
+api/debug_*.txt
+debug_*.txt
+*.debug
